@@ -2,13 +2,15 @@ import {useState} from 'react';
 import Logout from "./Logout"
 import Rooms from "./Rooms";
 
-const NavBar = ({user, currentRoom, setCurrentRoom}) => {
+const NavBar = ({user, currentRoom, setCurrentRoom }) => {
     const [showListMenu, setShowListMenu] = useState(false)
+    const [currentRoomName, setCurrentRoomName] = useState("General")
 
+  
     return(
         <nav>
             <h1>
-                {user ? <>Current room: <strong>{currentRoom}</strong> </> : <strong>Chat App</strong>}
+                {user ? <>Current room: <strong>{currentRoomName}</strong> </> : <strong>Chat App</strong>}
             </h1>
             {user ? (
                 <>
@@ -21,7 +23,7 @@ const NavBar = ({user, currentRoom, setCurrentRoom}) => {
                             <Logout setShowListMenu={setShowListMenu} />
                         </li>
                         <li>
-                            <Rooms currentRoom={currentRoom} setCurrentRoom={setCurrentRoom} setShowListMenu={setShowListMenu} /> 
+                            <Rooms currentRoom={currentRoom} setCurrentRoom={setCurrentRoom} setShowListMenu={setShowListMenu} setCurrentRoomName={setCurrentRoomName} currentRoomName={currentRoomName}/> 
                         </li>
                     </ul>
                 </>

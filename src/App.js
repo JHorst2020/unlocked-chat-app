@@ -9,6 +9,7 @@ import Spinner from "./components/Spinner"
 
 const App = () => {
   const [currentRoom, setCurrentRoom] = useState("General")
+  const [currentRoomName, setCurrentRoomName] = useState("General")
   const [user] = useAuthState(auth)
   const [loading, setLoading] = useState(true)
   console.log("this is the user:    ", user)
@@ -17,9 +18,9 @@ const App = () => {
   return (
     <div className="app">
       {/* {loading && <Spinner />} */}
-      <NavBar user={user} currentRoom={currentRoom} setCurrentRoom={setCurrentRoom} />
+      <NavBar user={user} currentRoom={currentRoom} setCurrentRoom={setCurrentRoom} currentRoomName={currentRoomName} setCurrentRoomName={setCurrentRoomName}/>
       <div className="content">
-        {user ? <ChatRoom currentRoom={currentRoom} /> : <Login />}
+        {user ? <ChatRoom currentRoom={currentRoom} currentRoomName={currentRoomName} /> : <Login />}
       </div>
     </div>
   );

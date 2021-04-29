@@ -95,7 +95,8 @@ nav {
   flex-direction: column;
 }
 
-form {
+
+.chatForm {
   bottom: 0;
   width: 100%;
   height: 10vh;

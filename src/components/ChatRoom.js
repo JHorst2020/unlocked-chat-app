@@ -3,7 +3,7 @@ import { db, auth, firebaseRef } from "../config"
 import {useCollectionData} from "react-firebase-hooks/firestore"
 import MessageCard from "./MessageCard"
 
-export default function ChatRoom({currentRoom}) {
+export default function ChatRoom({currentRoom, currentRoomName}) {
     const customRef = useRef()
     const [message, setMessage] = useState('');
     const messagesRef = db.collection("messages");
@@ -43,7 +43,7 @@ export default function ChatRoom({currentRoom}) {
                 ))}
                 <span ref={customRef}></span>
             </div>
-            <form onSubmit={handleSubmit} >
+            <form onSubmit={handleSubmit} className="chatForm" >
                 <textarea value={message} onChange={(e) => setMessage(e.target.value)} placeholder="Enter message" onKeyDown={keyboardEvent}/>
                 <button type="submit" disabled={!message}>Send</button>
             </form>
